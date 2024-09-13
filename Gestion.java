@@ -26,6 +26,7 @@ public class Gestion {
     public String mostrarDisponibilidad(int seccion) {
         int[][] lista = obtenerListaSeccion(seccion);
 		String resultado = "";
+		String resultado1 = "";
 
         if (lista == null) {
             resultado = "Sección no válida.";
@@ -33,13 +34,11 @@ public class Gestion {
         }
 
         for (int i = 0; i < lista.length; i++) {
-            resultado = "Fila " + (i + 1) + ": ";
-			return resultado;
+            resultado = "Fila " + (i + 1) + ": /n";
             for (int j = 0; j < lista[i].length; j++) {
-                resultado = (lista[i][j] == 1 ? "Disponible" : "Reservado") + " ";
-				return resultado;
+                resultado1 = (lista[i][j] == 1 ? "Disponible" : "Reservado") + " ";
+				resultado = resultado + resultado1;
             }
-            resultado = "/n";
 			return resultado;
         }
     }
