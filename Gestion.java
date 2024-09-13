@@ -7,23 +7,24 @@ public class Gestion {
 
     public String reservarAsientos(int seccion, int fila, int asiento) {
         int[][] lista = obtenerListaSeccion(seccion);
-		String alerta = "";
-        
+        String alerta = "";
+
         if (lista == null || fila < 1 || fila > lista.length || asiento < 1 || asiento > lista[0].length) {
             alerta = "Datos de asiento incorrectos.\n";
-			return alerta;
+            return alerta;
         }
 
         if (lista[fila - 1][asiento - 1] == 1) {
             lista[fila - 1][asiento - 1] = 0;
+            secciones.guardarDatos();
             alerta = "Asiento reservado exitosamente.\n";
         } else {
-            alerta = "El asiento ya está reservado.\n";
+            alerta = "El asiento ya esta reservado.\n";
         }
-		return alerta;
+        return alerta;
     }
-
-    public String mostrarDisponibilidad(int seccion) {
+	
+	public String mostrarDisponibilidad(int seccion) {
         int[][] lista = obtenerListaSeccion(seccion);
 		String resultado = "";
 		String resultado1 = "";
@@ -47,20 +48,21 @@ public class Gestion {
 
     public String cancelarReserva(int seccion, int fila, int asiento) {
         int[][] lista = obtenerListaSeccion(seccion);
-		String alerta = "";
-        
+        String alerta = "";
+
         if (lista == null || fila < 1 || fila > lista.length || asiento < 1 || asiento > lista[0].length) {
             alerta = "Datos de asiento incorrectos.\n";
-			return alerta;
+            return alerta;
         }
 
         if (lista[fila - 1][asiento - 1] == 0) {
             lista[fila - 1][asiento - 1] = 1;
+            secciones.guardarDatos();
             alerta = "Reserva cancelada exitosamente.\n";
         } else {
-            alerta = "El asiento ya esta disponible.\n";
+            alerta = "El asiento ya está disponible.\n";
         }
-		return alerta;
+        return alerta;
     }
 
     public String calcularIngresos() {
