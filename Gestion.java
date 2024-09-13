@@ -12,7 +12,6 @@ public class Gestion {
         if (lista == null || fila < 1 || fila > lista.length || asiento < 1 || asiento > lista[0].length) {
             alerta = "Datos de asiento incorrectos.";
 			return alerta;
-            return;
         }
 
         if (lista[fila - 1][asiento - 1] == 1) {
@@ -31,7 +30,6 @@ public class Gestion {
         if (lista == null) {
             resultado = "Sección no válida.";
 			return resultado;
-            return;
         }
 
         for (int i = 0; i < lista.length; i++) {
@@ -53,7 +51,6 @@ public class Gestion {
         if (lista == null || fila < 1 || fila > lista.length || asiento < 1 || asiento > lista[0].length) {
             alerta = "Datos de asiento incorrectos.";
 			return alerta;
-            return;
         }
 
         if (lista[fila - 1][asiento - 1] == 0) {
@@ -89,6 +86,7 @@ public class Gestion {
         ioro = "Oro: $" + ingresos[2] + "/n";
         iplata = "Plata: $" + ingresos[3];
 		texto = texto + ivip + iplatino + ioro + iplata;
+		return texto;
     }
 
     private int[][] obtenerListaSeccion(int seccion) {
