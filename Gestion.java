@@ -30,12 +30,12 @@ public class Gestion {
 		String resultado3 = "";
 
         if (lista == null) {
-            resultado = "Sección no válida.";
+            resultado = "Seccion no valida.";
 			return resultado;
         }
 
         for (int i = 0; i < lista.length; i++) {
-            resultado = "Fila " + (i + 1) + ": /n";
+            resultado = "Fila " + (i + 1) + ": \n";
             for (int j = 0; j < lista[i].length; j++) {
                 resultado1 = (lista[i][j] == 1 ? "Disponible" : "Reservado") + " ";
 				resultado = resultado + resultado1;
@@ -67,7 +67,7 @@ public class Gestion {
         int[] precios = {150, 100, 75, 50};
         int[] ingresos = new int[4];
         int[][][] listas = new int[][][]{secciones.getVip(), secciones.getPlatino(), secciones.getOro(), secciones.getPlata()};
-		String texto = "Ingresos por sección:/n";
+		String texto = "Ingresos por seccion:\n";
 		String ivip = "";
 		String iplatino = "";
 		String ioro = "";
@@ -82,9 +82,9 @@ public class Gestion {
             }
         }
 
-		ivip = "VIP: $" + ingresos[0] + "/n";
-        iplatino = "Platino: $" + ingresos[1] + "/n";
-        ioro = "Oro: $" + ingresos[2] + "/n";
+		ivip = "VIP: $" + ingresos[0] + "\n";
+        iplatino = "Platino: $" + ingresos[1] + "\n";
+        ioro = "Oro: $" + ingresos[2] + "\n";
         iplata = "Plata: $" + ingresos[3];
 		texto = texto + ivip + iplatino + ioro + iplata;
 		return texto;
