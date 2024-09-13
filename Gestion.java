@@ -58,7 +58,7 @@ public class Gestion {
             lista[fila - 1][asiento - 1] = 1;
             alerta = "Reserva cancelada exitosamente.\n";
         } else {
-            alerta = "El asiento ya está disponible.\n";
+            alerta = "El asiento ya esta disponible.\n";
         }
 		return alerta;
     }
@@ -72,6 +72,7 @@ public class Gestion {
 		String iplatino = "";
 		String ioro = "";
 		String iplata = "";
+		String total = "";
 		
 
         for (int i = 0; i < listas.length; i++) {
@@ -86,7 +87,8 @@ public class Gestion {
         iplatino = "Platino: $" + ingresos[1] + "\n";
         ioro = "Oro: $" + ingresos[2] + "\n";
         iplata = "Plata: $" + ingresos[3] + "\n";
-		texto = texto + ivip + iplatino + ioro + iplata;
+		total = "Total: $" + (ingresos[0] + ingresos[1] + ingresos[2] + ingresos[3]) + "\n";
+		texto = texto + ivip + iplatino + ioro + iplata + total;
 		return texto;
     }
 
