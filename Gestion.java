@@ -10,15 +10,15 @@ public class Gestion {
 		String alerta = "";
         
         if (lista == null || fila < 1 || fila > lista.length || asiento < 1 || asiento > lista[0].length) {
-            alerta = "Datos de asiento incorrectos.";
+            alerta = "Datos de asiento incorrectos.\n";
 			return alerta;
         }
 
         if (lista[fila - 1][asiento - 1] == 1) {
             lista[fila - 1][asiento - 1] = 0;
-            alerta = "Asiento reservado exitosamente.";
+            alerta = "Asiento reservado exitosamente.\n";
         } else {
-            alerta = "El asiento ya está reservado.";
+            alerta = "El asiento ya está reservado.\n";
         }
 		return alerta;
     }
@@ -30,7 +30,7 @@ public class Gestion {
 		String resultado3 = "";
 
         if (lista == null) {
-            resultado = "Seccion no valida.";
+            resultado = "Seccion no valida.\n";
 			return resultado;
         }
 
@@ -50,15 +50,15 @@ public class Gestion {
 		String alerta = "";
         
         if (lista == null || fila < 1 || fila > lista.length || asiento < 1 || asiento > lista[0].length) {
-            alerta = "Datos de asiento incorrectos.";
+            alerta = "Datos de asiento incorrectos.\n";
 			return alerta;
         }
 
         if (lista[fila - 1][asiento - 1] == 0) {
             lista[fila - 1][asiento - 1] = 1;
-            alerta = "Reserva cancelada exitosamente.";
+            alerta = "Reserva cancelada exitosamente.\n";
         } else {
-            alerta = "El asiento ya está disponible.";
+            alerta = "El asiento ya está disponible.\n";
         }
 		return alerta;
     }
