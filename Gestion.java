@@ -85,7 +85,7 @@ public class Gestion {
 		ivip = "VIP: $" + ingresos[0] + "\n";
         iplatino = "Platino: $" + ingresos[1] + "\n";
         ioro = "Oro: $" + ingresos[2] + "\n";
-        iplata = "Plata: $" + ingresos[3];
+        iplata = "Plata: $" + ingresos[3] + "\n";
 		texto = texto + ivip + iplatino + ioro + iplata;
 		return texto;
     }
