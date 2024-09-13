@@ -27,6 +27,7 @@ public class Gestion {
         int[][] lista = obtenerListaSeccion(seccion);
 		String resultado = "";
 		String resultado1 = "";
+		String resultado3 = "";
 
         if (lista == null) {
             resultado = "Sección no válida.";
@@ -39,8 +40,9 @@ public class Gestion {
                 resultado1 = (lista[i][j] == 1 ? "Disponible" : "Reservado") + " ";
 				resultado = resultado + resultado1;
             }
-			return resultado;
+			resultado3 = resultado3 + resultado;
         }
+		return resultado3;
     }
 
     public String cancelarReserva(int seccion, int fila, int asiento) {
