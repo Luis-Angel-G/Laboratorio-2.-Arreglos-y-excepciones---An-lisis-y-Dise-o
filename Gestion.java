@@ -38,7 +38,7 @@ public class Gestion {
             resultado = "Fila " + (i + 1) + ": \n";
             for (int j = 0; j < lista[i].length; j++) {
                 resultado1 = (lista[i][j] == 1 ? "Disponible" : "Reservado") + " ";
-				resultado = resultado + resultado1;
+				resultado = resultado + resultado1 + "\n";
             }
 			resultado3 = resultado3 + resultado;
         }
