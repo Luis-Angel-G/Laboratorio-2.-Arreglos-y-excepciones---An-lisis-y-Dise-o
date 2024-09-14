@@ -39,7 +39,7 @@ public class Gestion {
             secciones.guardarDatos();
             alerta = "Asiento reservado exitosamente.\n";
         } else {
-            alerta = "El asiento ya está reservado.\n";
+            alerta = "El asiento ya esta reservado.\n";
         }
         return alerta;
     }
@@ -57,7 +57,7 @@ public class Gestion {
         String resultado3 = "";
 
         if (lista == null) {
-            resultado = "Sección no válida.\n";
+            resultado = "Sección no valida.\n";
             return resultado;
         }
 
@@ -94,7 +94,7 @@ public class Gestion {
             secciones.guardarDatos();
             alerta = "Reserva cancelada exitosamente.\n";
         } else {
-            alerta = "El asiento ya está disponible.\n";
+            alerta = "El asiento ya esta disponible.\n";
         }
         return alerta;
     }
@@ -108,7 +108,7 @@ public class Gestion {
         int[] precios = {150, 100, 75, 50};
         int[] ingresos = new int[4];
         int[][][] listas = new int[][][]{secciones.getVip(), secciones.getPlatino(), secciones.getOro(), secciones.getPlata()};
-        String texto = "Ingresos por sección:\n";
+        String texto = "Ingresos por seccion:\n";
         String ivip = "";
         String iplatino = "";
         String ioro = "";
