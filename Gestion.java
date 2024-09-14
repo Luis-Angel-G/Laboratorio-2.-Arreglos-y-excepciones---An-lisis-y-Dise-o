@@ -55,6 +55,7 @@ public class Gestion {
         String resultado = "";
         String resultado1 = "";
         String resultado3 = "";
+		String[] abecedario = {A, B, C, D, E, F, G, H, I, J, K, L, M, N, Ñ, O, P, Q, R, S, T, U, V, W, X, Y, Z};
 
         if (lista == null) {
             resultado = "Sección no valida.\n";
@@ -64,7 +65,7 @@ public class Gestion {
         for (int i = 0; i < lista.length; i++) {
             resultado = "Fila " + (i + 1) + ": \n";
             for (int j = 0; j < lista[i].length; j++) {
-                resultado1 = (lista[i][j] == 1 ? "Disponible" : "Reservado") + " ";
+                resultado1 = abecedario[j] + "\n" + (lista[i][j] == 1 ? "Disponible" : "Reservado") + " ";
                 resultado = resultado + resultado1 + "\n";
             }
             resultado3 = resultado3 + resultado;
