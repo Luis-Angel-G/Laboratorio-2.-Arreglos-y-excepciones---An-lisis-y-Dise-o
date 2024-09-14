@@ -64,7 +64,7 @@ public class Gestion {
         for (int i = 0; i < lista.length; i++) {
             resultado = "Fila " + (i + 1) + ": \n";
             for (int j = 0; j < lista[i].length; j++) {
-                resultado1 = abecedario[j] + "\n" + (lista[i][j] == 1 ? "Disponible" : "Reservado") + " ";
+                resultado1 = abecedario[j] + (i + 1) + ": " + (lista[i][j] == 1 ? "Disponible" : "Reservado") + " ";
                 resultado = resultado + resultado1 + "\n";
             }
             resultado3 = resultado3 + resultado;
