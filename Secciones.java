@@ -1,13 +1,17 @@
-/**
- * Clase que representa las secciones del auditorio y gestiona la disponibilidad de los asientos.
- * Proporciona la funcionalidad de cargar y guardar los datos de las secciones desde/para archivos CSV.
- * 
- * Autor: Luis Angel Girón Arévalo
- * Fecha de creación: 12/09/2024
- * Última modificación: 13/09/2024
- */
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
+/**
+ * Clase que gestiona las secciones de asientos en un auditorio. Proporciona métodos para
+ * inicializar las secciones, cargar datos desde archivos CSV y guardar datos en archivos CSV.
+ * 
+ * <p>Autor: Luis Angel Girón Arévalo</p>
+ * <p>Fecha de creación: 12/09/2024</p>
+ * <p>Última modificación: 13/09/2024</p>
+ */
 public class Secciones {
     private int[][] vip = new int[5][10];
     private int[][] platino = new int[8][12];
@@ -15,8 +19,8 @@ public class Secciones {
     private int[][] plata = new int[12][20];
 
     /**
-     * Constructor de la clase Secciones.
-     * Inicializa las matrices de asientos y carga los datos desde los archivos CSV.
+     * Constructor de la clase {@code Secciones}.
+     * Inicializa las secciones y carga los datos desde archivos CSV.
      */
     public Secciones() {
         inicializarSecciones();
@@ -24,50 +28,64 @@ public class Secciones {
     }
 
     /**
-     * Inicializa los asientos de cada sección como disponibles (valor 1).
+     * Inicializa todas las secciones de asientos con el valor 1 (disponible).
      */
     private void inicializarSecciones() {
-        // Código para inicializar los asientos
+        for (int i = 0; i < vip.length; i++)
+            for (int j = 0; j < vip[i].length; j++)
+                vip[i][j] = 1;
+
+        for (int i = 0; i < platino.length; i++)
+            for (int j = 0; j < platino[i].length; j++)
+                platino[i][j] = 1;
+
+        for (int i = 0; i < oro.length; i++)
+            for (int j = 0; j < oro[i].length; j++)
+                oro[i][j] = 1;
+
+        for (int i = 0; i < plata.length; i++)
+            for (int j = 0; j < plata[i].length; j++)
+                plata[i][j] = 1;
     }
 
     /**
-     * Retorna la matriz de asientos de la sección VIP.
+     * Devuelve la matriz que representa la sección VIP.
      * 
-     * @return matriz de la sección VIP.
+     * @return La matriz de asientos para la sección VIP.
      */
     public int[][] getVip() {
         return vip;
     }
 
     /**
-     * Retorna la matriz de asientos de la sección Platino.
+     * Devuelve la matriz que representa la sección Platino.
      * 
-     * @return matriz de la sección Platino.
+     * @return La matriz de asientos para la sección Platino.
      */
     public int[][] getPlatino() {
         return platino;
     }
 
     /**
-     * Retorna la matriz de asientos de la sección Oro.
+     * Devuelve la matriz que representa la sección Oro.
      * 
-     * @return matriz de la sección Oro.
+     * @return La matriz de asientos para la sección Oro.
      */
     public int[][] getOro() {
         return oro;
     }
 
     /**
-     * Retorna la matriz de asientos de la sección Plata.
+     * Devuelve la matriz que representa la sección Plata.
      * 
-     * @return matriz de la sección Plata.
+     * @return La matriz de asientos para la sección Plata.
      */
     public int[][] getPlata() {
         return plata;
     }
 
     /**
-     * Carga los datos de las secciones desde los archivos CSV correspondientes.
+     * Carga los datos de las secciones desde archivos CSV.
      */
     private void cargarDatos() {
         cargarSeccion("vip.csv", vip);
@@ -77,13 +95,25 @@ public class Secciones {
     }
 
     /**
-     * Carga los datos de una sección específica desde un archivo CSV.
+     * Carga los datos de una sección desde un archivo CSV.
      * 
-     * @param archivo Nombre del archivo CSV.
-     * @param seccion Matriz de la sección que se desea cargar.
+     * @param archivo El nombre del archivo CSV.
+     * @param seccion La matriz de asientos a cargar.
      */
     private void cargarSeccion(String archivo, int[][] seccion) {
-        // Código para cargar los datos desde el archivo CSV
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            int fila = 0;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                for (int i = 0; i < datos.length; i++) {
+                    seccion[fila][i] = Integer.parseInt(datos[i]);
+                }
+                fila++;
+            }
+        } catch (IOException e) {
+            System.out.println("Error al cargar datos de " + archivo + ": " + e.getMessage());
+        }
     }
 
     /**
@@ -97,12 +127,21 @@ public class Secciones {
     }
 
     /**
-     * Guarda los datos de una sección específica en un archivo CSV.
+     * Guarda los datos de una sección en un archivo CSV.
      * 
-     * @param archivo Nombre del archivo CSV.
-     * @param seccion Matriz de la sección que se desea guardar.
+     * @param archivo El nombre del archivo CSV.
+     * @param seccion La matriz de asientos a guardar.
      */
     private void guardarSeccion(String archivo, int[][] seccion) {
-        // Código para guardar los datos en el archivo CSV
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
+            for (int i = 0; i < seccion.length; i++) {
+                for (int j = 0; j < seccion[i].length; j++) {
+                    bw.write(seccion[i][j] + (j < seccion[i].length - 1 ? "," : ""));
+                }
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error al guardar datos en " + archivo + ": " + e.getMessage());
+        }
     }
 }
