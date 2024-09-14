@@ -55,7 +55,7 @@ public class Gestion {
         String resultado = "";
         String resultado1 = "";
         String resultado3 = "";
-		String[] abecedario = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+		String[] abecedario = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
         if (lista == null) {
             resultado = "Sección no valida.\n";
             return resultado;
